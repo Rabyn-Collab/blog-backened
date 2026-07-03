@@ -72,7 +72,7 @@ export const getBlogs = async (req, res) => {
     const limit = Number(req.query.limit) || 10;
     const skip = (page - 1) * limit;
 
-    const blogs = await query.skip(skip).limit(limit).populate('user', 'fullname  email').sort({ createdAt: -1 });
+    const blogs = await query.sort({ createdAt: -1 }).skip(skip).limit(limit).populate('user', 'fullname  email');
 
     const total = await Blog.countDocuments(filter);
     const pages = Math.ceil(total / limit);
