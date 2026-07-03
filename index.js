@@ -11,7 +11,7 @@ dns.setServers(['8.8.8.8', '1.1.1.1']);
 const app = express();
 
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://127.0.0.1:5173'],
+  origin: ['http://localhost:5173', 'https://blog-three-jet-10.vercel.app'],
   credentials: true
 }));
 mongoose.connect(
